@@ -51,3 +51,5 @@ async getCity(cityid){
 }
 
 }
+
+module.exports=CityRepository
