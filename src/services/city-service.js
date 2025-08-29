@@ -36,7 +36,7 @@ class CityService{
    }
     }
 
-    async getcity(){
+    async getcity(cityId){
    try {
     const city =await this.CityRepository.getCity(cityId)
     return city;
@@ -46,4 +46,4 @@ class CityService{
    }
     }
 }
-module.exports=CityService
+module.exports=CityService;
