@@ -2,7 +2,7 @@ const { where } = require('sequelize');
 const {City}=require('../models/index');
 
 class CityRepository {
-    async createcity({name}){
+    async createCity({name}){
 try {
         const city=await City.create({
             name
@@ -14,7 +14,7 @@ try {
     }
     }
     
-async deleCity(cityid){
+async deleteCity(cityid){
     try {
         await City.destroy({
             where:{
@@ -31,7 +31,9 @@ async deleCity(cityid){
 async updateCity(cityid,data){
     try {
         const city=await City.update(data,{
-            where:cityid
+            where:{
+                id:cityid
+            }
         })
     } catch (error) {
          console.log("something went wrong in repository layer");

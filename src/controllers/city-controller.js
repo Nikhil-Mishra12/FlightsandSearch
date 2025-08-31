@@ -22,10 +22,10 @@ try {
 }
 }
 
-const destroy =async ()=>{
+const destroy =async (req,res)=>{
     try {
          const response=await Cityservice.deleteCity(req.params.id);
-    return res.status(201).json({
+    return res.status(200).json({
         data:response,
         success:true,
         message:"successfully delete a city",
@@ -36,16 +36,16 @@ const destroy =async ()=>{
     return res.status(500).json({
         data:{},
         success:false,
-        message:"not able to create a city",
+        message:"not able to delete a city",
         err:error
     })
 }
 }
 
-const update =async ()=>{
+const update =async (req,res)=>{
     try {
         const response=await Cityservice.updateCity(req.params.id,req.body);
-    return res.status(201).json({
+    return res.status(200).json({
         data:response,
         success:true,
         message:"successfully update a city",
@@ -62,10 +62,10 @@ const update =async ()=>{
 }
 }
 
-const get =async ()=>{
+const get =async (req,res)=>{
     try {
-        const response=await Cityservice.getcity(req.params.id);
-    return res.status(201).json({
+        const response=await Cityservice.getCity(req.params.id);
+    return res.status(200).json({
         data:response,
         success:true,
         message:"successfully get a city",
@@ -81,3 +81,10 @@ const get =async ()=>{
     })
 }
 }
+
+ module.exports = {
+     create,
+     destroy,
+     update,
+     get
+ };
