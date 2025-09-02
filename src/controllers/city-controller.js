@@ -84,7 +84,7 @@ const get =async (req,res)=>{
 
 const getAll =async (req,res)=>{
     try {
-        const cities=await Cityservice.getAllcities();
+        const cities=await Cityservice.getAllcities(req.query);
     return res.status(200).json({
         data:cities,
         success:true,
@@ -106,7 +106,7 @@ const getAll =async (req,res)=>{
  module.exports = {
      create,
      destroy,
-     update,
+     update, 
      get,
      getAll
  };
