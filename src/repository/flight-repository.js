@@ -67,5 +67,18 @@ async getAllFlight(filter){
 }
 }
 
+async updateFlights(data,flightId){
+  try {
+    await Flights.update(data,{
+      where:{
+        id:flightId
+      }
+    })
+  } catch (error) {
+    console.log("something went wrong in flight repository");
+    throw(error);
+  }
+
+}
 }
 module.exports=FlightRepository;

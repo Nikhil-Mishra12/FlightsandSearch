@@ -18,6 +18,7 @@ constructor(){
             const flight=await this.flightRepository.createFlight({
                 ...data,totalSeats:airplane.capacity
             })
+            
             return flight;
         } catch (error) {
          console.log("Something wentwrong in service layer");
@@ -34,5 +35,29 @@ constructor(){
         throw(error)
       }
     }
+
+    async getFlight(flightId){
+      try {
+        const flight=await this.flightRepository.getFlight(flightId);
+        return flight;
+      } catch (error) {
+        console.log("Something went wrong in service layer");
+        throw(error)
+      }
+    }
+
+     async updateFlight(flightId,data){
+      try {
+        const response=await this.flightRepository.updateFlights(data,flightId);
+        return response;
+      } catch (error) {
+        console.log("Something went wrong in service layer");
+        throw(error)
+      }
+    }
+
+    
 }
+
+
 module.exports=FlightService
